@@ -1,14 +1,20 @@
 import React from 'react'
 import moment from 'moment'
 import { FaEdit, FaTrash } from 'react-icons/fa'
-function BlogItem({ title, image, timestamps }) {
+import {  useContext } from 'react'
+import { BlogContentContext } from '../../../context/BlogContentProvider'
+function BlogItem({ title, image, timestamps , content }) {
+    const {setState} = useContext(BlogContentContext)
+    const handleShowContent = (content) => {
+        setState({show : true, content})
+    }
     return (
         <tr className="bg-gray-800 ">
             <td className="p-3 text-white">
                 {title}
             </td>
             <td className="p-3">
-                <button className="bg-green-400 text-gray-50 rounded-md px-2">Show Content</button>
+                <button className="bg-green-400 text-gray-50 rounded-md px-2" onClick={() => handleShowContent(content)}>Show Content</button>
             </td>
             <td className="p-3 font-bold">
                 <img src={image} width="100" alt="This is pic" />

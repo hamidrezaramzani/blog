@@ -1,4 +1,5 @@
 const db = require('../db')
+const moment = require('moment')
 const newBlog = (req, res) => {
     let { title, content } = req.body;
 
@@ -8,7 +9,7 @@ const newBlog = (req, res) => {
         if (err)
             return res.status(500).send(err);
 
-        db.query("INSERT INTO blogs (title , content , image) VALUES (?,?,?)", [title, content, fileName], (err) => {
+        db.query("INSERT INTO blogs (title , content , image , time) VALUES (?,?,?,?)", [title, content, fileName, moment().unix()], (err) => {
             if (err)
                 return res.status(500).send(err)
             else

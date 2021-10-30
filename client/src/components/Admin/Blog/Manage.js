@@ -3,6 +3,9 @@ import Layout from '../Layout'
 import BlogItem from './BlogItem'
 import { useQuery } from 'react-query'
 import { getAllBlogs } from '../../../api'
+import Content from './Content'
+import { useState, useContext } from 'react'
+import { BlogContentContext } from '../../../context/BlogContentProvider'
 function Manage() {
     const { isLoading, data } = useQuery("blogs", getAllBlogs, {
         onError: (err) => {
@@ -10,20 +13,24 @@ function Manage() {
         }
     })
 
-    if (data) {
-        console.log(data);
-    }
+    const { state } = useContext(BlogContentContext);
+
 
     const renderData = () => {
-        if (data) {
+
+        if (isLoading) {
+            return "loading"
+        }
+        if (data.data.length) {
             return data.data.map(item => (
-                <BlogItem key={item.id} timestamps={item.time} title={item.title} image={`http://localhost:5000/public/images/${item.image}`}  />
+                <BlogItem key={item.id} timestamps={item.time} content={item.content} title={item.title} image={`http://localhost:5000/public/images/${item.image}`} />
             ))
         }
     }
 
     return (
         <Layout title="Manage Blogs">
+            {state.show ? <Content /> : []}
             <table className="table text-gray-400 w-full border-separate space-y-6 text-sm">
                 <thead className="bg-gray-800 text-gray-500">
                     <tr>
@@ -38,7 +45,6 @@ function Manage() {
                     {renderData()}
                 </tbody>
             </table>
-
         </Layout>
     )
 }
