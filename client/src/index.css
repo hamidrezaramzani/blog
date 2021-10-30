@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+.w-vh-full {
+    height: 100vh;
+
+}
+
+.font {
+    font-family: 'Didact Gothic';
+}
+
+
+.font2 {
+    font-family: 'Quicksand';
+}
+body{
+    font-family: 'Didact Gothic';
+}
+
+.header {
+    background: url(./images/header-bg.jpg);
+    background-position: right;
+    background-size: cover;
+}
