@@ -18,3 +18,7 @@ export const newBlog = async ([url, data]) => {
         }
     });
 }
+
+export const getAllBlogs = async () => {
+    return await request.get("blog/all");
+}
