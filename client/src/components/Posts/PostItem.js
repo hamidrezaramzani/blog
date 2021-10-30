@@ -2,7 +2,7 @@ import React from 'react'
 
 function PostItem() {
     return (
-        <div className='w-2/6 p-2 hover:bg-gray-100 transition'>
+        <div className='w-3/6 p-2 hover:bg-gray-100 transition'>
             <a href="/">
                 <img src="https://picsum.photos/300/200" alt="Post avatar" className="w-full " />
                 <h2 className='p-2 text-center text-xl text-gray-700'>This is Post Title</h2>
