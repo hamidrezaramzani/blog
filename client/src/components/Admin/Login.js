@@ -2,8 +2,9 @@ import React, { useRef, useContext, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { login } from '../../api'
 import { useMutation } from 'react-query'
-import swal from 'sweetalert2/dist/sweetalert2.js'
 import { UserContext } from '../../context/UserProvider'
+
+import swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 function Login() {
     const router = useHistory();

@@ -3,9 +3,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Loading from './components/Loading/Loading';
 import { QueryClient, QueryClientProvider } from 'react-query'
 import UserProvider from './context/UserProvider';
+import PrivateRoute from './components/PrivateRoute';
 const Home = lazy(() => import('./components/Home/Home'))
 const Login = lazy(() => import('./components/Admin/Login'))
 const Dashboard = lazy(() => import('./components/Admin/Dashboard'))
+const NewBlog = lazy(() => import('./components/Admin/Blog/New'))
+
 function App() {
     const queryClient = new QueryClient();
 
@@ -17,7 +20,8 @@ function App() {
                         <Switch>
                             <Route path="/" exact component={Home} />
                             <Route path="/admin/login" component={Login} />
-                            <Route path="/admin/dashboard" component={Dashboard} />
+                            <PrivateRoute path="/admin/dashboard" component={Dashboard} />
+                            <PrivateRoute path="/blog/new" component={NewBlog} />
                         </Switch>
                     </BrowserRouter>
                 </Suspense>

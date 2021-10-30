@@ -5,6 +5,16 @@ const request = axios.create({
     baseURL: "http://localhost:5000/api/"
 })
 
-export const login = async (params) => {
-    return await request.post(params[0],params[1]);
+export const login = async ([url, data]) => {
+    return await request.post(url, data);
+}
+
+
+
+export const newBlog = async ([url, data]) => {
+    return await request.post(url, data, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        }
+    });
 }
