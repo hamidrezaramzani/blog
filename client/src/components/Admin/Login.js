@@ -33,7 +33,7 @@ function Login() {
     useEffect(() => {
         console.log(state.auth);
         if (state.auth) {
-            router.push("/");
+            router.push("/admin/dashboard");
         }
     }, [state])
 

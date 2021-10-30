@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import UserProvider from './context/UserProvider';
 const Home = lazy(() => import('./components/Home/Home'))
 const Login = lazy(() => import('./components/Admin/Login'))
+const Dashboard = lazy(() => import('./components/Admin/Dashboard'))
 function App() {
     const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ function App() {
                         <Switch>
                             <Route path="/" exact component={Home} />
                             <Route path="/admin/login" component={Login} />
+                            <Route path="/admin/dashboard" component={Dashboard} />
                         </Switch>
                     </BrowserRouter>
                 </Suspense>
