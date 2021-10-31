@@ -36,3 +36,7 @@ export const getBlogItem = async ([id]) => {
 export const joinToUs = async (data) => {
     return await request.post("subscribe/join", data);
 }
+
+export const getHighlights = async () => {
+    return await request.get("blog/highlights");
+} 

@@ -55,4 +55,15 @@ const getBlogItem = (req, res) => {
     });
 }
 
-module.exports = { newBlog, allBlogs, deleteItem, getBlogItem }
+
+
+const highlights = (req, res) => {
+    db.query("SELECT * FROM blogs LIMIT 5",  (err, results) => {
+        if (err)
+            res.status(400).send(err)
+
+        res.status(200).send(results)
+    });
+}
+
+module.exports = { newBlog, allBlogs, deleteItem, getBlogItem , highlights }

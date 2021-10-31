@@ -34,9 +34,9 @@ function Header() {
                      Blog
                 </h1>
                 <p className='py-3  font text-gray-300  block  font float-left'>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quia qui vero, omnis dolorum minus unde odio nesciunt animi. Repellat necessitatibus iste totam autem eius placeat reiciendis asperiores consequatur voluptatibus?
+                Hello, my name is Hamid Reza Ramezani. I am writing the latest articles that I would like you to know here. I hope you enjoy the articles I publish here enough.
                 </p>
-                <Link to="/#posts" className="w-48 mt-3 font text-white text-center border-white border p-3 hover:bg-white hover:text-gray-800 transition float-left inline-block">GETTING STARTED</Link>
+                <Link to="/#posts" className="w-48 mt-3 font text-white text-center border-white border p-3 hover:bg-white hover:text-gray-800 transition float-left inline-block">Latest Posts</Link>
             </div>
         </header>
     )
