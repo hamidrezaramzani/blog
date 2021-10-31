@@ -3,6 +3,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const usersRouter = require('./routes/users')
 const blogsRouter = require('./routes/blogs')
+const subscribesRouter = require('./routes/subscribes')
 const fileUpload = require('express-fileupload');
 const app = express();
 app.use((req, res, next) => {
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 
 app.use("/api/user", usersRouter)
 app.use("/api/blog", blogsRouter)
+app.use("/api/subscribe", subscribesRouter)
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

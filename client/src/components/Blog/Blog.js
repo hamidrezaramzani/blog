@@ -14,7 +14,7 @@ const Blog = () => {
             return "Loading"
 
         if (data) {
-            return <div className="p-4">
+            return <div className="p-20">
                 <div className="w-full">
                     <img className="w-full" src={`http://localhost:5000/public/images/${data.data.image}`} />
                 </div>

@@ -32,3 +32,7 @@ export const deleteBlogItem = async ([id]) => {
 export const getBlogItem = async ([id]) => {
     return await request.get(`blog/item/${id}`);
 }
+
+export const joinToUs = async (data) => {
+    return await request.post("subscribe/join", data);
+}

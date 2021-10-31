@@ -50,7 +50,6 @@ function BlogItem({ title, image, timestamps, content, id }) {
             </td>
             <td className="p-3 text-center">
                 <button className="bg-red-400 hover:bg-red-600 text-gray-50 rounded-md p-2" onClick={() => handleDelete(id)}><FaTrash /></button>
-                <button className="bg-yellow-400 hover:bg-yellow-600 ml-3 text-gray-50 rounded-md p-2"><FaEdit /></button>
             </td>
 
 
