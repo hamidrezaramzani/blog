@@ -18,7 +18,7 @@ function Posts() {
 
     }
     return (
-        <div className='w-1/2 flex justify-center flex-wrap mx-auto my-12'>
+        <div className='w-1/2 flex justify-center flex-wrap mx-auto my-12' id="posts">
             {renderBlogs()}
         </div>
     )

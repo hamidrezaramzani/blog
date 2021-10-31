@@ -1,13 +1,13 @@
 import React from 'react'
 import Header from '../Header/Header'
-import Search from '../Search/Search'
+import AboutMe from '../AboutMe/AboutMe'
 import Posts from '../Posts/Posts'
 import Footer from '../Footer/Footer'
 function Home() {
     return (
         <>
             <Header />
-            <Search />
+            <AboutMe />
             <Posts />
             <Footer />
         </>
