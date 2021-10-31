@@ -1,31 +1,28 @@
 import React from 'react'
 import logo from '../../images/logo.png'
 import Typing from 'react-typing-animation';
-
+import {Link} from 'react-router-dom'
 function Header() {
     return (
         <header className="w-full h-vh-full header relative">
             <div className="absolute w-full h-20 flex justify-between">
                 <ul className="flex h-20 items-center">
                     <li className=''>
-                        <a href="/">
+                        <Link to="/">
                             <img src={logo} alt="" className='w-20' />
-                        </a>
+                        </Link>
                     </li>
                     <li className='px-1 mx-2 rounded text-white hover:text-white transition hover:bg-gray-800'>
-                        <a href="/">Home</a>
+                        <Link to="/">Home</Link>
                     </li>
                     <li className='px-1 mx-2 rounded text-white hover:text-white transition hover:bg-gray-800'>
-                        <a href="/">Travel</a>
+                        <Link to="/aboutme">About me</Link>
                     </li>
 
                     <li className='px-1 mx-2 rounded text-white hover:text-white transition hover:bg-gray-800'>
-                        <a href="/">Food</a>
+                        <Link to="/contactus">Contact Us</Link>
                     </li>
 
-                    <li className='px-1 mx-2 rounded text-white hover:text-white transition hover:bg-gray-800'>
-                        <a href="/">Lifecycle</a>
-                    </li>
                 </ul>
 
 
@@ -39,7 +36,7 @@ function Header() {
                 <p className='py-3  font text-gray-300  block  font float-left'>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quia qui vero, omnis dolorum minus unde odio nesciunt animi. Repellat necessitatibus iste totam autem eius placeat reiciendis asperiores consequatur voluptatibus?
                 </p>
-                <a href="/" className="w-48 mt-3 font text-white text-center border-white border p-3 hover:bg-white hover:text-gray-800 transition float-left inline-block">GETTING STARTED</a>
+                <Link to="/#posts" className="w-48 mt-3 font text-white text-center border-white border p-3 hover:bg-white hover:text-gray-800 transition float-left inline-block">GETTING STARTED</Link>
             </div>
         </header>
     )
