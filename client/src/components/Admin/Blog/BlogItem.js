@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment'
-import { FaEdit, FaTrash } from 'react-icons/fa'
+import { FaTrash } from 'react-icons/fa'
 import { useContext } from 'react'
 import { BlogContentContext } from '../../../context/BlogContentProvider'
 import swal from 'sweetalert2/dist/sweetalert2.js'
@@ -10,7 +10,7 @@ import { deleteBlogItem } from "../../../api.js";
 import { queryClient } from '../../../App'
 function BlogItem({ title, image, timestamps, content, id }) {
     const { mutate } = useMutation((id) => deleteBlogItem(id), {
-        onSuccess: ({ data }) => {
+        onSuccess: () => {
             queryClient.refetchQueries("blogs");
         }
     })

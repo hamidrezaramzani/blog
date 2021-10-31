@@ -15,7 +15,7 @@ function Login() {
             setState({ auth: true, token: res.data.token })
         },
         onError: (err) => {
-            if (err.response.status == 400) {
+            if (err.response.status === 400) {
                 swal.fire({
                     title: "Login Failed",
                     text: "username or password is invalid",

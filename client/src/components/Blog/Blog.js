@@ -16,7 +16,7 @@ const Blog = () => {
         if (data) {
             return <div className="p-20">
                 <div className="w-full">
-                    <img className="w-full" src={`http://localhost:5000/public/images/${data.data.image}`} />
+                    <img className="w-full" alt={data.data.title} src={`http://localhost:5000/public/images/${data.data.image}`} />
                 </div>
 
                 <div className="py-5">

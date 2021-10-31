@@ -4,7 +4,7 @@ import BlogItem from './BlogItem'
 import { useQuery } from 'react-query'
 import { getAllBlogs } from '../../../api'
 import Content from './Content'
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 import { BlogContentContext } from '../../../context/BlogContentProvider'
 function Manage() {
     const { isLoading, data } = useQuery("blogs", getAllBlogs, {

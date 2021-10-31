@@ -3,7 +3,7 @@ import HighlightItem from './HighlightItem'
 import { useQuery } from 'react-query'
 import { getHighlights } from '../../api';
 function HighLight() {
-    const { data, isLoading } = useQuery("highlights", getHighlights);
+    const { data } = useQuery("highlights", getHighlights);
 
     const renderSingleHighlight = () => {
         if (data) {

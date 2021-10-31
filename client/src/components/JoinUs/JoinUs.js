@@ -15,7 +15,7 @@ function JoinUs() {
             })   
         } , 
         onError : (err) => {
-            if (err.response.status == 400) {
+            if (err.response.status === 400) {
                 swal.fire({
                     title: "Join Failed",
                     text: "this email already registered",
