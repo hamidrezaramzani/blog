@@ -1,12 +1,38 @@
 import React from 'react'
 import moment from 'moment'
 import { FaEdit, FaTrash } from 'react-icons/fa'
-import {  useContext } from 'react'
+import { useContext } from 'react'
 import { BlogContentContext } from '../../../context/BlogContentProvider'
-function BlogItem({ title, image, timestamps , content }) {
-    const {setState} = useContext(BlogContentContext)
+import swal from 'sweetalert2/dist/sweetalert2.js'
+import { useMutation } from 'react-query'
+import 'sweetalert2/src/sweetalert2.scss'
+import { deleteBlogItem } from "../../../api.js";
+import { queryClient } from '../../../App'
+function BlogItem({ title, image, timestamps, content, id }) {
+    const { mutate } = useMutation((id) => deleteBlogItem(id), {
+        onSuccess: ({ data }) => {
+            queryClient.refetchQueries("blogs");
+        }
+    })
+    const { setState } = useContext(BlogContentContext)
     const handleShowContent = (content) => {
-        setState({show : true, content})
+        setState({ show: true, content })
+    }
+
+    const handleDelete = (id) => {
+        swal.fire({
+            title: 'Delete Blog',
+            text: "Do you really want to delete this blog?",
+            icon: 'question',
+            confirmButtonText: 'Delete',
+            cancelButtonText: 'Cancel',
+            showCancelButton: true,
+            showCloseButton: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                mutate([id]);
+            }
+        })
     }
     return (
         <tr className="bg-gray-800 ">
@@ -23,7 +49,7 @@ function BlogItem({ title, image, timestamps , content }) {
                 {moment.unix(timestamps).format("Y/m/d h:m")}
             </td>
             <td className="p-3 text-center">
-                <button className="bg-red-400 hover:bg-red-600 text-gray-50 rounded-md p-2"><FaTrash /></button>
+                <button className="bg-red-400 hover:bg-red-600 text-gray-50 rounded-md p-2" onClick={() => handleDelete(id)}><FaTrash /></button>
                 <button className="bg-yellow-400 hover:bg-yellow-600 ml-3 text-gray-50 rounded-md p-2"><FaEdit /></button>
             </td>
 

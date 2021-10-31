@@ -29,4 +29,18 @@ const allBlogs = (req, res) => {
     });
 }
 
-module.exports = { newBlog, allBlogs }
+
+const deleteItem = (req, res) => {
+    const { id } = req.params;
+    db.query("DELETE FROM blogs  WHERE id=?", [id], (err, results) => {
+        if (err)
+            res.status(400).send(err)
+
+        res.status(200).send({
+            message: "blog item deleted",
+            id
+        })
+    });
+}
+
+module.exports = { newBlog, allBlogs, deleteItem }

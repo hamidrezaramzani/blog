@@ -10,9 +10,8 @@ const Login = lazy(() => import('./components/Admin/Login'))
 const Dashboard = lazy(() => import('./components/Admin/Dashboard'))
 const NewBlog = lazy(() => import('./components/Admin/Blog/New'))
 const ManageBlogs = lazy(() => import('./components/Admin/Blog/Manage'))
-
+export const queryClient = new QueryClient();
 function App() {
-    const queryClient = new QueryClient();
 
     return (
         <UserProvider>

@@ -22,3 +22,8 @@ export const newBlog = async ([url, data]) => {
 export const getAllBlogs = async () => {
     return await request.get("blog/all");
 }
+
+
+export const deleteBlogItem = async ([id]) => {
+    return await request.get(`blog/delete/${id}`);
+}

@@ -23,7 +23,7 @@ function Manage() {
         }
         if (data.data.length) {
             return data.data.map(item => (
-                <BlogItem key={item.id} timestamps={item.time} content={item.content} title={item.title} image={`http://localhost:5000/public/images/${item.image}`} />
+                <BlogItem key={item.id} id={item.id} timestamps={item.time} content={item.content} title={item.title} image={`http://localhost:5000/public/images/${item.image}`} />
             ))
         }
     }

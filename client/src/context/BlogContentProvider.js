@@ -3,7 +3,7 @@ import { createContext, useState } from 'react'
 export const BlogContentContext = createContext(false);
 const BlogContentProvider = (props) => {
   
-    const [state, setState] = useState({show : true , content : ""})
+    const [state, setState] = useState({show : false , content : ""})
     return <BlogContentContext.Provider value={{ state, setState }}>{props.children}</BlogContentContext.Provider>
 }
 
