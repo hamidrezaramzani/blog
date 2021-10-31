@@ -47,7 +47,6 @@ const deleteItem = (req, res) => {
 
 const getBlogItem = (req, res) => {
     const { id } = req.params;
-    console.log(id);
     db.query("SELECT * FROM blogs WHERE id=?", [id], (err, results) => {
         if (err)
             res.status(400).send(err)

@@ -2,7 +2,7 @@ import React from 'react'
 
 function JoinUs() {
     return (
-        <div className="flex w-4/6 p-8 justify-between items-center mx-auto my-5 bg-gray-200 rounded">
+        <div className="flex w-4/6 p-8 justify-between items-center mx-auto my-5 bg-gray-100 rounded">
             <div>
                 <h2 className="text-3xl">Join Us</h2>
                 <p>you can Join us for reci</p>
