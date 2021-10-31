@@ -1,7 +1,7 @@
 const db = require('../db')
 const moment = require('moment')
 const newBlog = (req, res) => {
-    let { title, content } = req.body;
+    let { title, content, description } = req.body;
 
     const directoryPath = __dirname + "\\..\\public\\images\\";
     const fileName = (Math.ceil(Math.random() * 1000)) + req.files.image.name;
@@ -9,7 +9,7 @@ const newBlog = (req, res) => {
         if (err)
             return res.status(500).send(err);
 
-        db.query("INSERT INTO blogs (title , content , image , time) VALUES (?,?,?,?)", [title, content, fileName, moment().unix()], (err) => {
+        db.query("INSERT INTO blogs (title , content , image , time , description) VALUES (?,?,?,? , ?)", [title, content, fileName, moment().unix(), description], (err) => {
             if (err)
                 return res.status(500).send(err)
             else

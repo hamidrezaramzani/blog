@@ -4,7 +4,7 @@ import Typing from 'react-typing-animation';
 
 function Header() {
     return (
-        <header className="w-full w-vh-full header relative">
+        <header className="w-full h-vh-full header relative">
             <div className="absolute w-full h-20 flex justify-between">
                 <ul className="flex h-20 items-center">
                     <li className=''>

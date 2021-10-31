@@ -34,6 +34,7 @@ function New() {
         }
     })
     const titleRef = useRef();
+    const descriptionRef = useRef();
 
     const [state, setState] = useState({
         editorState: EditorState.createEmpty()
@@ -53,9 +54,11 @@ function New() {
         e.preventDefault();
         const content = draftToHtml(convertToRaw(state.editorState.getCurrentContent()))
         const title = titleRef.current.value.trim();
+        const description = descriptionRef.current.value.trim();
         formData.append("title", title)
         formData.append("content", content)
         formData.append("image", file)
+        formData.append("description", description)
         mutate(["blog/new", formData])
     }
 
@@ -81,7 +84,8 @@ function New() {
         <Layout title={"Add Blog"}>
             <form action="" onSubmit={handleOnSubmit}>
                 <input required type="file" name="file" onChange={handleImageChange} className='w-full p-2 outline-none  text-md border-b mb-5' />
-                <input required minLength={10} ref={titleRef} type="text" name="title" placeholder='Title' className='w-full p-2 outline-none text-gray-800 text-md border-b mb-5' />
+                <input required minLength={5} ref={titleRef} type="text" name="title" placeholder='Title' className='w-full p-2 outline-none text-gray-800 text-md border-b mb-5' />
+                <input required minLength={15} ref={descriptionRef} type="text" name="description" placeholder='Description' className='w-full p-2 outline-none text-gray-800 text-md border-b mb-5' />
 
                 <Editor
                     editorState={state.editorState}
