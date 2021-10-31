@@ -27,3 +27,8 @@ export const getAllBlogs = async () => {
 export const deleteBlogItem = async ([id]) => {
     return await request.get(`blog/delete/${id}`);
 }
+
+
+export const getBlogItem = async ([id]) => {
+    return await request.get(`blog/item/${id}`);
+}

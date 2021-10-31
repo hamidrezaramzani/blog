@@ -10,6 +10,7 @@ const Login = lazy(() => import('./components/Admin/Login'))
 const Dashboard = lazy(() => import('./components/Admin/Dashboard'))
 const NewBlog = lazy(() => import('./components/Admin/Blog/New'))
 const ManageBlogs = lazy(() => import('./components/Admin/Blog/Manage'))
+const Blog = lazy(() => import('./components/Blog/Blog'))
 export const queryClient = new QueryClient();
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
                                 <PrivateRoute path="/admin/dashboard" component={Dashboard} />
                                 <PrivateRoute path="/blog/new" component={NewBlog} />
                                 <PrivateRoute path="/blog/manage" component={ManageBlogs} />
+                                <PrivateRoute path="/blog/:id" component={Blog} />
                             </Switch>
                         </BrowserRouter>
                     </Suspense>

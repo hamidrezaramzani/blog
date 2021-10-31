@@ -32,7 +32,7 @@ const allBlogs = (req, res) => {
 
 const deleteItem = (req, res) => {
     const { id } = req.params;
-    db.query("DELETE FROM blogs  WHERE id=?", [id], (err, results) => {
+    db.query("DELETE FROM blogs  WHERE id=?", [id], (err) => {
         if (err)
             res.status(400).send(err)
 
@@ -43,4 +43,17 @@ const deleteItem = (req, res) => {
     });
 }
 
-module.exports = { newBlog, allBlogs, deleteItem }
+
+
+const getBlogItem = (req, res) => {
+    const { id } = req.params;
+    console.log(id);
+    db.query("SELECT * FROM blogs WHERE id=?", [id], (err, results) => {
+        if (err)
+            res.status(400).send(err)
+
+        res.status(200).send(results[0])
+    });
+}
+
+module.exports = { newBlog, allBlogs, deleteItem, getBlogItem }
